@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Yekan";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/src/assets/fonts/yekan/YekanBakhFaNum-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Yekan";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/src/assets/fonts/yekan/YekanBakhFaNum-Light.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Yekan";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("/src/assets/fonts/yekan/YekanBakhFaNum-Black.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Yekan";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/src/assets/fonts/yekan/YekanBakhFaNum-Regular.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: "Yekan";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/src/assets/fonts/yekan/YekanBakhFaNum-SemiBold.woff2")
+    format("woff2");
+}
+
+@theme {
+  --color-gray-300: #f6f6f6;
+  --color-gray-250: #fbfbfb;
+  --color-gray-350: #ececec;
+  --color-gray-600: #ababab;
+  --color-gray-650: #868686;
+
+  --color-orange-500: #f9b233;
+
+  --color-green-500: #2fac66;
+
+  --breakpoint-desktop: 90rem;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    font-family: "Yekan", "sens-serif";
+    min-height: 100vh;
+  }
+  button {
+    @apply cursor-pointer;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:focus {
+    box-shadow: 0 0 0 1000px transparent inset !important;
+    -webkit-text-fill-color: inherit !important;
+    transition: background-color 9999s ease-in-out 0s !important;
+  }
+}
+
+@layer utilities {
+  .bg-primary {
+    @apply bg-gray-300 dark:bg-stone-900;
+  }
+  .bg-secondary {
+    @apply bg-gray-250 dark:bg-zinc-800;
+  }
+  .bg-neutral-100 {
+    @apply bg-white dark:bg-zinc-800;
+  }
+  .bg-form {
+    @apply bg-white dark:bg-zinc-950;
+  }
+  .bg-neutral-200 {
+    @apply bg-white dark:bg-black;
+  }
+  .bg-base {
+    @apply bg-white dark:bg-zinc-950;
+  }
+  .text-base {
+    @apply text-black dark:text-white;
+  }
+}
+.toast {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.toast.exiting {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.modal-content {
+  padding: 20px;
+  border-radius: 30px;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.modal-content.exiting {
+  opacity: 0;
+  transform: scale(0.95);
+}
