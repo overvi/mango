@@ -7,6 +7,7 @@ const PassForm = () => {
     <form className="mt-19" action="">
       <PasswordInput
         wrapperClassName=""
+        autoComplete="new-password"
         placeholder="وارد کنید..."
         label="رمز عبور"
       />

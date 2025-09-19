@@ -32,14 +32,12 @@ export const Popover: React.FC<{
   return createPortal(
     <div
       ref={popoverRef}
-      className="bg-white dark:bg-zinc-800"
+      className="bg-neutral-200 shadow-popover-light dark:shadow-popover"
       style={{
         position: "absolute",
         top: rect.bottom + window.scrollY + 8,
         left: rect.left + window.scrollX,
-
         borderRadius: "24px",
-        boxShadow: "0 0 20px 0 rgba(0,0,0,0.08)",
       }}
     >
       {children}

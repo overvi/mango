@@ -3,7 +3,7 @@ import PlanCard from "@/components/Home/PlanCard";
 
 const Home = () => {
   return (
-    <div className="bg-primary text-base  min-h-screen min-w-[var(--breakpoint-desktop)]  ">
+    <div className="bg-primary text-base  min-h-screen  pb-6 min-w-[var(--breakpoint-desktop)]  ">
       <header>
         <Navbar />
       </header>

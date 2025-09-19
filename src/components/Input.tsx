@@ -1,6 +1,6 @@
 import { useState } from "react";
-import eye from "@/assets/images/eye.svg";
-import eyeVisible from "@/assets/images/visible-eye.svg";
+import Eye from "@/assets/images/eye.svg?react";
+import EyeVisible from "@/assets/images/visible-eye.svg?react";
 
 interface Props {
   label: string;
@@ -24,7 +24,7 @@ export const Input = ({
         <input
           autoComplete={autoComplete}
           placeholder={placeholder}
-          className="bg-form  text-base w-full placeholder:text-sm placeholder:text-gray-600 outline-none  py-2  px-3.5  rounded-full"
+          className="bg-white dark:bg-gray-700  text-base w-full placeholder:text-sm placeholder:text-gray-600 outline-none  py-2  px-3.5  rounded-full"
           type="text"
         />
       </div>
@@ -45,7 +45,7 @@ export const PasswordInput = ({
       <label htmlFor="" className="text-sm">
         {label}
       </label>
-      <div className="mt-1 flex items-center pe-3 bg-form rounded-full justify-between">
+      <div className="mt-1 flex items-center pe-3 bg-white dark:bg-gray-700 rounded-full justify-between">
         <input
           autoComplete={autoComplete}
           placeholder={placeholder}
@@ -58,7 +58,11 @@ export const PasswordInput = ({
           onClick={() => setShowPassword(!showPassword)}
         >
           <div>
-            <img src={showPassword ? eyeVisible : eye} alt="" />
+            {showPassword ? (
+              <EyeVisible className="*:fill-orange-500" />
+            ) : (
+              <Eye className="*:fill-[#636363] dark:*:fill-gray-600" />
+            )}
           </div>
         </button>
       </div>

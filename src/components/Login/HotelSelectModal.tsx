@@ -7,10 +7,10 @@ import Button from "../Button";
 const HotelSelectModal = () => {
   const { closeModal } = useModal();
   return (
-    <div className="p-3 w-[31.375rem] ">
-      <div className="flex items-center  pb-4 justify-between border-b border-b-gray-350 ">
+    <div className=" w-[31.375rem] p-6 ">
+      <div className="flex items-start  pb-4 justify-between border-b border-b-gray-350 ">
         <div className="flex items-center gap-2">
-          <div className="bg-secondary   p-3.5 rounded-[.875rem]">
+          <div className="bg-neutral-50   p-3.5 rounded-[.875rem]">
             <Building />
           </div>
           <div className="flex flex-col justify-between">
@@ -30,7 +30,7 @@ const HotelSelectModal = () => {
             <li key={i}>
               <label
                 htmlFor={`hotel-${i}`}
-                className="flex has-[input:checked]:bg-orange-500 has-[input:checked]:text-white cursor-pointer bg-secondary rounded-[.875rem]  p-3 items-center gap-2"
+                className="flex has-[input:checked]:bg-orange-500 has-[input:checked]:text-white cursor-pointer bg-neutral-50 rounded-[.875rem]  p-3 items-center gap-2"
               >
                 <input
                   type="radio"

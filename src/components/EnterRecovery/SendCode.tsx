@@ -9,9 +9,9 @@ import Timer from "./Timer";
 
 const SendCode = () => {
   const { addToast } = useToast();
-  const [timeLeft, setTimeLeft] = useState(10);
+  const [timeLeft, setTimeLeft] = useState(1);
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex items-center justify-between mt-6">
       <div className="flex items-center  gap-2">
         {timeLeft > 0 ? (
           <div className="flex items-center gap-2">
@@ -33,7 +33,7 @@ const SendCode = () => {
                   description: "کد ۶ رقمی جدید برای شما ارسال شد.",
                   type: "success",
                 });
-                setTimeLeft(10);
+                setTimeLeft(1);
               }
             }}
             className="flex items-center gap-2"
@@ -50,7 +50,7 @@ const SendCode = () => {
           variant="primary"
           label="بازیابی"
           icon={LeftArrow}
-          className="mt-6 !py-3"
+          className=" !py-3"
         />
       </div>
     </div>

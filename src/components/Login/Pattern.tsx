@@ -1,4 +1,4 @@
-import patternTop from "@/assets/images/login-pattern-top.png";
+import patternTop from "@/assets/images/login-pattern-top.svg";
 
 const Pattern = () => {
   return (

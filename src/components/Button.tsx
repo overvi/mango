@@ -24,22 +24,31 @@ const Button: React.FC<ButtonProps> = ({
   const baseClasses =
     "flex items-center py-2 px-9.5 rounded-full gap-2.5 transition-colors duration-300";
 
-  const variants: Record<typeof variant, string> = {
-    primary: "bg-orange-500 text-white",
-    secondary: "bg-gray-300 dark:bg-zinc-900 text-black dark:text-white",
-    form: "bg-green-500 text-white",
+  const variants: Record<NonNullable<ButtonProps["variant"]>, string> = {
+    primary:
+      "bg-orange-500 group text-white dark:hover:bg-[#655a47] hover:bg-orange-15 hover:text-orange-500",
+    secondary:
+      "bg-gray-300 dark:bg-gray-700 text-black dark:text-white hover:text-orange-500 ",
+    form: "bg-green-500 text-white hover:bg-green-15 dark:hover:bg-[#475a4f] hover:text-green-500",
     outline:
       "border border-zinc-400 text-zinc-800 hover:bg-zinc-100 dark:text-white dark:border-zinc-600",
   };
 
+  const iconVariants: Record<NonNullable<ButtonProps["variant"]>, string> = {
+    primary: "text-white group-hover:*:fill-orange-500",
+    secondary: "",
+    form: "",
+    outline: "",
+  };
+
   const renderIcon = () => {
     if (!icon) return null;
-    return (
-      <div className={iconClassName}>
-        {typeof icon === "function"
-          ? React.createElement(icon, { className: iconClassName })
-          : icon}
-      </div>
+    const finalIconClass = `${iconVariants[variant]} ${iconClassName ?? ""}`;
+
+    return typeof icon === "function" ? (
+      React.createElement(icon, { className: finalIconClass })
+    ) : (
+      <div className={finalIconClass}>{icon}</div>
     );
   };
 

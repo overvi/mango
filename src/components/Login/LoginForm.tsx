@@ -24,10 +24,10 @@ const LoginForm = () => {
       />
       <Link
         to={"/password-recovery"}
-        className="flex items-center gap-1.5 mt-1 "
+        className="flex items-center group gap-1.5 mt-1 "
       >
         <div className="text-xs">فراموشی رمز عبور</div>
-        <div>
+        <div className="group-hover:-translate-x-3 transition-transform">
           <img src={arrowLeftOrange} alt="" />
         </div>
       </Link>

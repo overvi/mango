@@ -6,7 +6,7 @@ import IconBlack from "@/assets/images/arrow-left-black-filled.svg?react";
 const PlanCard = ({ active }: { active: boolean }) => {
   return (
     <div className="pt-8 p-4 w-full bg-neutral-200 max-w-[18rem] rounded-[30px] ">
-      <div className="bg-primary size-24.5 rounded-full  flex items-center justify-center">
+      <div className="bg-gray-300 dark:bg-gray-700 size-24.5 rounded-full  flex items-center justify-center">
         <img src={image} alt="" />
       </div>
       <p className="font-semibold text-sm mt-5.5">برنامه مدیریت خشکشویی</p>
@@ -18,7 +18,11 @@ const PlanCard = ({ active }: { active: boolean }) => {
       </p>
       <div className="w-fit ms-auto mt-11">
         {active ? (
-          <Button className=" !px-2" label="رفتن به برنامه" icon={LeftArrow} />
+          <Button
+            className="hover:!bg-orange-500/10 !px-2"
+            label="رفتن به برنامه"
+            icon={LeftArrow}
+          />
         ) : (
           <Button
             className="!px-2"

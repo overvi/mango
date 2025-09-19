@@ -15,6 +15,9 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
 
   useEffect(() => {
     const root = document.documentElement;
+
+    root.classList.add("disable-transitions");
+
     if (darkMode) {
       root.classList.add("dark");
       localStorage.setItem("theme", "dark");
@@ -22,6 +25,12 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
       root.classList.remove("dark");
       localStorage.setItem("theme", "light");
     }
+
+    const timeout = setTimeout(() => {
+      root.classList.remove("disable-transitions");
+    }, 0);
+
+    return () => clearTimeout(timeout);
   }, [darkMode]);
 
   const toggleDarkMode = () => setDarkMode((prev) => !prev);

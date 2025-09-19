@@ -37,7 +37,7 @@ export const ModalProvider = ({ children }: PropsWithChildren) => {
         createPortal(
           <div className="modal-overlay" onClick={closeModal}>
             <div
-              className={`modal-content bg-primary text-base ${
+              className={`modal-content bg-neutral-200 text-base ${
                 exiting ? "exiting" : ""
               }`}
               onClick={(e) => e.stopPropagation()}

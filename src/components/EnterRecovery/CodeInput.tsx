@@ -54,7 +54,7 @@ const CodeInput: React.FC<CodeInputProps> = ({
           value={val}
           onChange={(e) => handleChange(e.target.value, idx)}
           onKeyDown={(e) => handleKeyDown(e, idx)}
-          className="size-15 bg-base text-center text-xl  rounded-[.875rem] focus:outline-none focus:ring-2 focus:ring-orange-500"
+          className="size-15 bg-white dark:bg-gray-700 text-center text-xl  rounded-[.875rem] focus:outline-none focus:ring-2 focus:ring-orange-500"
         />
       ))}
     </div>

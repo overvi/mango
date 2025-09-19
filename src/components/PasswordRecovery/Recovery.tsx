@@ -7,7 +7,7 @@ import { Link } from "react-router";
 
 const Recovery = () => {
   return (
-    <div className="bg-primary text-base min-h-[42.5rem] flex flex-col overflow-hidden z-0 relative justify-end pb-20 rounded-[50px] h-[85vh]">
+    <div className="bg-neutral-300 text-base min-h-[42.5rem] flex flex-col overflow-hidden z-0 relative justify-end pb-20 rounded-[50px] h-[85vh]">
       <Pattern />
       <div className="px-20">
         <div>

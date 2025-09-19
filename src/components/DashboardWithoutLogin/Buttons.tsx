@@ -16,7 +16,7 @@ const Buttons = () => {
 
           <Button
             label="B2B"
-            iconClassName="[transform:rotate(90deg)]"
+            iconClassName="[transform:rotate(180deg)]"
             icon={Arrow}
             className="uppercase text-2xl !rounded-[1.25rem] !px-15 !py-2.5"
             iconPosition="left"
@@ -33,7 +33,7 @@ const Buttons = () => {
 
           <Button
             label="B2C"
-            iconClassName="[transform:rotate(90deg)]"
+            iconClassName="[transform:rotate(180deg)]"
             icon={Arrow}
             className="uppercase text-2xl !rounded-[1.25rem] !px-15 !py-2.5"
             iconPosition="left"

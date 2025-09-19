@@ -4,7 +4,7 @@ const Logo = () => {
   return (
     <button
       aria-label="Logo"
-      className="bg-neutral-100 rounded-full size-11.5 flex items-center justify-center"
+      className="bg-neutral-200 rounded-full size-11.5 flex items-center justify-center"
     >
       <L />
     </button>

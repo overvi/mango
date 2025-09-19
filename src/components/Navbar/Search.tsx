@@ -2,7 +2,7 @@ import { default as S } from "@/assets/images/search-normal.svg?react";
 
 const Search = () => {
   return (
-    <div className="flex items-center max-w-[34.375rem] w-full justify-between rounded-full bg-neutral-100  ">
+    <div className="flex items-center max-w-[34.375rem] w-full justify-between rounded-full bg-neutral-200  ">
       <input
         className="py-3 ps-6 outline-none  w-full"
         placeholder="جستجو..."

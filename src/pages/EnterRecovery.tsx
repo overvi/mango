@@ -4,7 +4,7 @@ import Banner from "@/components/Login/Banner";
 const EnterRecovery = () => {
   return (
     <main className="min-w-[var(--breakpoint-desktop)] bg-base text-base">
-      <div className="flex min-h-screen gap-8.5 items-center py-15 pe-15 ps-4  justify-between *:basis-full ">
+      <div className="flex min-h-screen gap-8.5 items-center py-15 pe-15 ps-4  justify-between *:basis-[43.5%] ">
         <Banner />
         <Code />
       </div>

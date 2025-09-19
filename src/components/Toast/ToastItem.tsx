@@ -63,11 +63,15 @@ const ToastItem: React.FC<ToastItemProps> = ({ toast, onRemove }) => {
     startTimer();
   };
 
-  const colors: Record<string, string> = {
-    success: "47, 172, 102", // #2FAC66
-    error: "248, 113, 113", // #f87171
-    info: "96, 165, 250", // #60a5fa
-    warning: "250, 204, 21", // #facc15
+  const baseClasses =
+    "toast flex justify-between items-center gap-2.5 rounded-3xl px-9 ps-4 pt-4 pb-6 shadow-lg backdrop-blur-lg transition ease-in-out";
+
+  const typeClasses: Record<typeof type, string> = {
+    success:
+      "bg-[#F5FBF7] border border-green-500 text-green-500 dark:bg-gray-750 before:absolute relative before:block before:inset-0 before:bg-green-500/10 before:rounded-3xl",
+    error: "bg-red-50 border border-red-500 text-red-600",
+    info: "bg-blue-50 border border-blue-500 text-blue-600",
+    warning: "bg-yellow-50 border border-yellow-500 text-yellow-600",
   };
 
   return (
@@ -75,58 +79,26 @@ const ToastItem: React.FC<ToastItemProps> = ({ toast, onRemove }) => {
       role="status"
       aria-live={type === "error" ? "assertive" : "polite"}
       aria-atomic="true"
-      className={`toast ${exiting ? "exiting" : ""}`}
       ref={toastRef}
       onMouseEnter={pauseTimer}
       onMouseLeave={resumeTimer}
+      className={`${baseClasses} ${typeClasses[type]} ${
+        exiting ? "exiting" : ""
+      } ${entering ? "translate-y-[-8px]" : "translate-y-0"} opacity-100`}
       style={{
         pointerEvents: "auto",
         minWidth: 240,
         maxWidth: 360,
-        padding: 12,
-        paddingInline: 24,
-        borderRadius: 24,
-        background: type === "error" ? "#FDF4F4" : `#F5FBF7`,
-        border: `1px solid rgba(${colors[type]}, 1)`,
-        boxShadow: "0 8px 30px rgba(0,0,0,0.12)",
-        transform: entering ? "translateY(-8px)" : "translateY(0)",
         transition: "opacity 220ms ease, transform 220ms ease",
-        display: "flex",
-        backdropFilter: "blur(16px)",
-        justifyContent: "space-between",
-        alignItems: "center",
-        gap: 8,
       }}
     >
-      <div style={{ flex: 1 }}>
+      <div className="flex-1">
         {icon && <div>{icon}</div>}
-        {title && (
-          <div className="mt-1" style={{ fontWeight: 700 }}>
-            {title}
-          </div>
-        )}
+        {title && <div className="mt-1 font-bold">{title}</div>}
         {description && (
-          <div
-            className="mt-1 text-sm font-semibold"
-            style={{ fontSize: 13, color: `rgb(${colors[type]})` }}
-          >
-            {description}
-          </div>
+          <div className="mt-1 text-sm font-semibold">{description}</div>
         )}
       </div>
-      <button
-        onClick={handleClose}
-        aria-label="Dismiss"
-        style={{
-          border: "none",
-          background: "transparent",
-          cursor: "pointer",
-          fontSize: 16,
-          lineHeight: 1,
-        }}
-      >
-        ×
-      </button>
     </div>
   );
 };

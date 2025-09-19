@@ -3,7 +3,7 @@ import profile from "@/assets/images/profile.png";
 
 const Profile = () => {
   return (
-    <button className="bg-neutral-100 group flex gap-2 p-2 rounded-full">
+    <button className="bg-neutral-200 group flex gap-2 p-2 items-center rounded-full">
       <div>
         <img src={profile} alt="" />
       </div>
