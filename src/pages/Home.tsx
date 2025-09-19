@@ -8,7 +8,7 @@ const Home = () => {
         <Navbar />
       </header>
       <main>
-        <ul className="grid pt-6 px-12 grid-cols-[repeat(auto-fit,minmax(16rem,1fr))] justify-between  gap-4">
+        <ul className="grid pt-6 px-12  *:justify-self-center grid-cols-[repeat(auto-fit,minmax(16rem,1fr))] justify-between  gap-4">
           {[...Array(12)].map((_, i) => (
             <PlanCard key={i} active={i == 2 || i == 5} />
           ))}
