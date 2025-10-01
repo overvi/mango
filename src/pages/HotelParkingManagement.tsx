@@ -18,7 +18,7 @@ const options = [
 
 const HotelParkingManagement = () => {
   return (
-    <div className="flex  gap-5 py-6 text-base px-11.5 bg-primary h-screen min-w-[var(--breakpoint-desktop)]  min-h-[800px]">
+    <div className="flex  gap-5 py-6 text-base px-11.5 bg-primary h-screen min-w-[var(--breakpoint-desktop)]  min-h-screen">
       <Sidebar />
       <div className="flex-1">
         <header className="flex items-center justify-between">
