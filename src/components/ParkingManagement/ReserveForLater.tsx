@@ -1,10 +1,6 @@
 import Button from "../Button";
 import { Input } from "../Input";
 import Select from "../Select/Select";
-import {
-  DatePicker as DatePickerJalali,
-  JalaliLocaleListener,
-} from "antd-jalali";
 
 const options = [
   { label: "Red", value: "red" },
@@ -30,11 +26,6 @@ const ReserveForLater = () => {
         placeholder="وارد کنید..."
         label="شماره اتاق"
       />
-      <div>
-        <label htmlFor="resDate">تاریخ رزرو</label>
-        <JalaliLocaleListener />
-        <DatePickerJalali id="resDate" />
-      </div>
 
       <Input
         className="bg-neutral-15"
