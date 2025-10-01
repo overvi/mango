@@ -13,7 +13,9 @@ const Navbar = () => {
 
         <Profile />
       </div>
-      <Search />
+      <div className="max-w-[34.375rem] w-full">
+        <Search />
+      </div>
       <div className="flex items-center gap-4">
         <Language />
         <ColorMode />

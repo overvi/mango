@@ -45,16 +45,20 @@
 
   --color-white: #fff;
   --color-black: #000;
-  --color-gray-300: #f6f6f6;
+
+  --color-gray-150: #f8f8f8;
+  --color-gray-200: #f6f6f6;
   --color-gray-250: #fbfbfb;
+  --color-gray-300: #f6f6f6;
   --color-gray-350: #ececec;
   --color-gray-600: #ababab;
   --color-gray-650: #868686;
+  --color-gray-700: #5d5d5d;
 
   --color-gray-750: #4b4b4b;
-  --color-gray-900: #282828;
   --color-gray-800: #595959;
-  --color-gray-700: #5d5d5d;
+  --color-gray-900: #282828;
+  --color-gray-76: #767676;
 
   --color-orange-500: #f9b233;
   --color-orange-15: #f8eeda;
@@ -63,10 +67,19 @@
   --color-green-15: #e0f3e8;
   --color-green-500: #2fac66;
 
+  --color-blue: #005eff;
+
+  --color-error: #ff0000;
+
+  --color-gray: #979797;
+
   --breakpoint-desktop: 88rem;
 
   --shadow-popover: 0 0 20px 0 rgba(0, 0, 0, 0.4);
+  --shadow-select: 0 0 20px 0 rgba(0, 0, 0, 0.08);
   --shadow-popover-light: 0 0 20px 0 rgba(0, 0, 0, 0.08);
+
+  --font-yekan: "Yekan";
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -113,6 +126,9 @@
   .bg-neutral-300 {
     @apply bg-gray-300 dark:bg-gray-750;
   }
+  .bg-neutral-15 {
+    @apply bg-gray-150 dark:bg-gray-700;
+  }
 
   .bg-base {
     @apply bg-white dark:bg-gray-900;
@@ -154,4 +170,49 @@
 .modal-content.exiting {
   opacity: 0;
   transform: scale(0.95);
+}
+
+.ant-picker-panel-layout,
+.ant-picker-input {
+  font-family: "Yekan";
+}
+
+.ant-picker {
+  @apply w-full  bg-gray-150 border-0 dark:bg-gray-700  text-base placeholder:text-sm placeholder:text-gray-600 outline-none  py-2  px-3.5  rounded-full;
+}
+
+.form-control {
+  @apply font-yekan text-lg font-bold;
+}
+
+.checkbox {
+  @apply appearance-none bg-white dark:bg-gray-750 m-0 from-inherit grid place-items-center text-current size-4 border border-black/40  rounded-sm;
+
+  transform: translateY(-0.075em);
+}
+.checkbox:checked {
+  @apply bg-orange-500/40 border-0;
+}
+
+.checkbox::before {
+  @apply content-[''] size-2 scale-0 transition-transform;
+  box-shadow: inset 1em 1em var(--form-control-color);
+  background-color: var(--color-orange-500);
+
+  transform-origin: bottom left;
+  clip-path: polygon(20% 46%, 0 59%, 46% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.checkbox:checked::before {
+  @apply scale-[1];
+}
+
+.scroll-hidden {
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scroll-hidden::-webkit-scrollbar {
+  display: none;
 }

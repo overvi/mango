@@ -2,9 +2,9 @@ import filledArrow from "@/assets/images/arrow-left-filled.svg";
 import LeftArrow from "@/assets/images/arrow-left-white.svg?react";
 import happy from "@/assets/images/emoji-happy.svg";
 import sad from "@/assets/images/emoji-sad.svg";
-import { useToast } from "@/providers/ToastProvider";
 import { useState } from "react";
 import Button from "../Button";
+import { useToast } from "../Toast/useToast";
 import Timer from "./Timer";
 
 const SendCode = () => {

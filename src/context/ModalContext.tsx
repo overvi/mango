@@ -1,7 +1,11 @@
 import { createContext, type ReactNode } from "react";
 
 interface ModalContextValue {
-  openModal: (c: ReactNode) => void;
+  openModal: (
+    c: ReactNode,
+    overlayClass?: string,
+    anchor?: React.RefObject<HTMLElement | null>
+  ) => void;
   closeModal: () => void;
 }
 

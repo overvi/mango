@@ -7,6 +7,7 @@ interface Props {
   placeholder: string;
   wrapperClassName?: string;
   autoComplete?: React.HTMLInputAutoCompleteAttribute;
+  className?: string;
 }
 
 export const Input = ({
@@ -14,17 +15,20 @@ export const Input = ({
   placeholder,
   wrapperClassName,
   autoComplete,
+  className,
 }: Props) => {
+  const baseClassName =
+    "bg-white dark:bg-gray-700  text-base w-full placeholder:text-sm placeholder:text-gray-600 outline-none  py-2  px-3.5  rounded-full";
   return (
     <div className={`w-full ${wrapperClassName}`}>
       <label htmlFor="" className="text-sm">
         {label}
       </label>
-      <div className="mt-1">
+      <div>
         <input
           autoComplete={autoComplete}
           placeholder={placeholder}
-          className="bg-white dark:bg-gray-700  text-base w-full placeholder:text-sm placeholder:text-gray-600 outline-none  py-2  px-3.5  rounded-full"
+          className={[baseClassName, className].join(" ")}
           type="text"
         />
       </div>

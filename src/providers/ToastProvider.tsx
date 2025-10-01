@@ -1,13 +1,6 @@
 import ToastItem from "@/components/Toast/ToastItem";
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useMemo,
-  useRef,
-  useState,
-  type ReactNode,
-} from "react";
+import ToastContext from "@/context/ToastContext";
+import { useCallback, useMemo, useRef, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 
 export type ToastType = "success" | "error" | "info" | "warning";
@@ -19,20 +12,6 @@ export interface Toast {
   icon?: ReactNode;
   type?: ToastType;
   duration?: number;
-}
-
-interface ToastContextValue {
-  addToast: (toast: Omit<Toast, "id"> & { id?: string }) => string;
-  removeToast: (id: string) => void;
-}
-
-const ToastContext = createContext<ToastContextValue | null>(null);
-
-// eslint-disable-next-line react-refresh/only-export-components
-export function useToast(): ToastContextValue {
-  const ctx = useContext(ToastContext);
-  if (!ctx) throw new Error("useToast must be used within ToastProvider");
-  return ctx;
 }
 
 interface ToastProviderProps {
