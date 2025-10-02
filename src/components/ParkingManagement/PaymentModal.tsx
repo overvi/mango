@@ -19,7 +19,7 @@ const PaymentModal = () => {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSelectedPayment(event.target.id);
   };
-  const { openModal } = useModal();
+  const { openModal, closeModal } = useModal();
   return (
     <div className=" w-[31.375rem] scroll-hidden p-6 max-h-[45.25rem] overflow-y-scroll ">
       <div className="border-b border-b-gray-350 dark:border-b-gray-800  pb-5">
@@ -35,7 +35,7 @@ const PaymentModal = () => {
               <p className="text-gray-650 mt-2 ">بخش A طبقه ۱</p>
             </div>
           </div>
-          <button className="self-start">
+          <button onClick={() => closeModal()} className="self-start">
             <Close />
           </button>
         </div>
