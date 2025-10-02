@@ -60,7 +60,7 @@ const RegistrationStep = () => {
           label="یادداشت"
         />
       </div>
-      <div className="flex items-center col-[1/3] mt-2 gap-4 justify-end">
+      <div className="flex items-center col-[1/3]  gap-4 justify-end">
         <Button
           className="outline-error text-error bg-error/5"
           variant="outline"
