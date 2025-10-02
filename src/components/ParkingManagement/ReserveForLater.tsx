@@ -36,13 +36,15 @@ const ReserveForLater = () => {
       <div>
         <TimeSelector />
       </div>
-      <Select
-        label="مدت زمان اقامت"
-        id="status-select"
-        iconClassName=""
-        buttonClassName="bg-neutral-15 text-sm h-10 py-2 px-3.5 rounded-full "
-        options={options}
-      />
+      <div className="self-end">
+        <Select
+          label="مدت زمان اقامت"
+          id="status-select"
+          iconClassName=""
+          buttonClassName="bg-neutral-15  text-sm h-10 py-2 px-3.5 rounded-full "
+          options={options}
+        />
+      </div>
       <Input
         containerClassName="bg-neutral-15"
         autoComplete="username"
@@ -51,7 +53,7 @@ const ReserveForLater = () => {
       />
       <div className="col-[1/3]">
         <Input
-          containerClassName="bg-neutral-15"
+          containerClassName="bg-neutral-15 "
           autoComplete="notes"
           placeholder="وارد کنید..."
           label="یادداشت"
