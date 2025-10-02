@@ -1,40 +1,61 @@
 import { useState } from "react";
 import Eye from "@/assets/images/eye.svg?react";
 import EyeVisible from "@/assets/images/visible-eye.svg?react";
+import React from "react";
 
-interface Props {
+interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
   placeholder: string;
   wrapperClassName?: string;
   autoComplete?: React.HTMLInputAutoCompleteAttribute;
   className?: string;
+  icon?: React.ReactNode;
+  containerClassName?: string;
 }
 
-export const Input = ({
-  label,
-  placeholder,
-  wrapperClassName,
-  autoComplete,
-  className,
-}: Props) => {
-  const baseClassName =
-    "bg-white dark:bg-gray-700  text-base w-full placeholder:text-sm placeholder:text-gray-600 outline-none  py-2  px-3.5  rounded-full";
-  return (
-    <div className={`w-full ${wrapperClassName}`}>
-      <label htmlFor="" className="text-sm">
-        {label}
-      </label>
-      <div>
-        <input
-          autoComplete={autoComplete}
-          placeholder={placeholder}
-          className={[baseClassName, className].join(" ")}
-          type="text"
-        />
+export const Input = React.forwardRef<HTMLInputElement, Props>(
+  (
+    {
+      label,
+      placeholder,
+      wrapperClassName,
+      autoComplete,
+      className,
+      icon,
+      containerClassName,
+      ...rest
+    },
+    ref
+  ) => {
+    const baseClassName =
+      " text-base w-full placeholder:text-sm placeholder:text-gray-600 outline-none py-2 px-3.5 rounded-full";
+
+    return (
+      <div className={`w-full ${wrapperClassName}`}>
+        <label htmlFor="" className="text-sm">
+          {label}
+        </label>
+        <div
+          className={`mt-1 flex items-center pe-3   relative rounded-full justify-between ${containerClassName}`}
+        >
+          <input
+            {...rest}
+            ref={ref}
+            autoComplete={autoComplete}
+            placeholder={placeholder}
+            className={[baseClassName, className].join(" ")}
+            type="text"
+          />
+          {icon && (
+            <div className="ms-2 pointer-events-none absolute left-3.5">
+              {icon}
+            </div>
+          )}
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+);
 
 export const PasswordInput = ({
   label,

@@ -14,6 +14,7 @@ const LoginForm = () => {
         autoComplete="username"
         placeholder="وارد کنید..."
         label="نام کاربری"
+        containerClassName="bg-input-primary"
       />
 
       <PasswordInput

@@ -80,20 +80,20 @@ const PaymentModal = () => {
           <ul className="mt-2  space-y-2">
             <li>
               <div className="flex items-center gap-1">
-                <input type="checkbox" className="checkbox" />
-                <label htmlFor="">تخفیف مهمان هتل (۱۰٪)</label>
+                <input type="checkbox" id="one" className="checkbox" />
+                <label htmlFor="one">تخفیف مهمان هتل (۱۰٪)</label>
               </div>
             </li>
             <li>
               <div className="flex items-center gap-1">
-                <input type="checkbox" className="checkbox" />
-                <label htmlFor="">(100٪) تخفیف مهمان VIP</label>
+                <input id="two" type="checkbox" className="checkbox" />
+                <label htmlFor="two">(100٪) تخفیف مهمان VIP</label>
               </div>
             </li>
             <li>
               <div className="flex items-center gap-1">
-                <input type="checkbox" className="checkbox" />
-                <label htmlFor="">باشگاه مشتریان (۵٪)</label>
+                <input id="three" type="checkbox" className="checkbox" />
+                <label htmlFor="three">باشگاه مشتریان (۵٪)</label>
               </div>
             </li>
           </ul>

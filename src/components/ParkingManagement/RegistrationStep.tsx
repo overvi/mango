@@ -15,25 +15,25 @@ const RegistrationStep = () => {
       className=" grid gap-3.5 grid-cols-[repeat(auto-fill,minmax(200px,1fr))]"
     >
       <Input
-        className="bg-neutral-15"
+        containerClassName="bg-neutral-15"
         autoComplete="username"
         placeholder="وارد کنید..."
         label="نام مهمان"
       />
       <Input
-        className="bg-neutral-15"
+        containerClassName="bg-neutral-15"
         autoComplete="username"
         placeholder="وارد کنید..."
         label="شماره اتاق"
       />
       <Input
-        className="bg-neutral-15"
+        containerClassName="bg-neutral-15"
         autoComplete="username"
         placeholder="وارد کنید..."
         label="شماره موبایل"
       />
       <Input
-        className="bg-neutral-15"
+        containerClassName="bg-neutral-15"
         autoComplete="username"
         placeholder="وارد کنید..."
         label="پلاک ماشین"
@@ -42,19 +42,19 @@ const RegistrationStep = () => {
         label="نوع وسیله نقلیه"
         id="status-select"
         iconClassName=""
-        buttonClassName="bg-neutral-15 py-2 px-3.5 rounded-full "
+        buttonClassName="bg-neutral-15 text-sm h-10 py-2 px-3.5 rounded-full "
         options={options}
       />
       <Select
         label="مدت زمان اقامت"
         id="status-select"
         iconClassName=""
-        buttonClassName="bg-neutral-15 py-2 px-3.5 rounded-full "
+        buttonClassName="bg-neutral-15 text-sm h-10 py-2 px-3.5 rounded-full "
         options={options}
       />
       <div className="col-[1/3]">
         <Input
-          className="bg-neutral-15"
+          containerClassName="bg-neutral-15"
           autoComplete="notes"
           placeholder="وارد کنید..."
           label="یادداشت"

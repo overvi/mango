@@ -1,6 +1,9 @@
+import { useState } from "react";
 import Button from "../Button";
+import Datepicker from "../Datepicker/Datepicker";
 import { Input } from "../Input";
 import Select from "../Select/Select";
+import TimeSelector from "../TimeSelector";
 
 const options = [
   { label: "Red", value: "red" },
@@ -9,46 +12,46 @@ const options = [
 ];
 
 const ReserveForLater = () => {
+  const [dpOpen, setDpOpen] = useState(false);
   return (
     <form
       action=""
       className=" grid gap-3.5 grid-cols-[repeat(auto-fill,minmax(200px,1fr))]"
     >
       <Input
-        className="bg-neutral-15"
+        containerClassName="bg-neutral-15"
         autoComplete="username"
         placeholder="وارد کنید..."
         label="نام مهمان"
       />
       <Input
-        className="bg-neutral-15"
+        containerClassName="bg-neutral-15"
         autoComplete="username"
         placeholder="وارد کنید..."
         label="شماره اتاق"
       />
-
-      <Input
-        className="bg-neutral-15"
-        autoComplete="username"
-        placeholder="وارد کنید..."
-        label="ساعت رزرو"
-      />
+      <div>
+        <Datepicker isOpen={dpOpen} setIsOpen={setDpOpen} />
+      </div>
+      <div>
+        <TimeSelector />
+      </div>
       <Select
         label="مدت زمان اقامت"
         id="status-select"
         iconClassName=""
-        buttonClassName="bg-neutral-15 py-2 px-3.5 rounded-full "
+        buttonClassName="bg-neutral-15 text-sm h-10 py-2 px-3.5 rounded-full "
         options={options}
       />
       <Input
-        className="bg-neutral-15"
+        containerClassName="bg-neutral-15"
         autoComplete="username"
         placeholder="وارد کنید..."
         label="شماره موبایل"
       />
       <div className="col-[1/3]">
         <Input
-          className="bg-neutral-15"
+          containerClassName="bg-neutral-15"
           autoComplete="notes"
           placeholder="وارد کنید..."
           label="یادداشت"

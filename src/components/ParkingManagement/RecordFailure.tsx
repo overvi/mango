@@ -16,12 +16,12 @@ const RecordFailure = () => {
           label="نوع وسیله نقلیه"
           id="status-select"
           iconClassName=""
-          buttonClassName="bg-neutral-15 py-2 px-3.5 rounded-full "
+          buttonClassName="bg-neutral-15 text-sm h-10 py-2 px-3.5 rounded-full "
           options={options}
         />
 
         <Input
-          className="bg-neutral-15"
+          containerClassName="bg-neutral-15"
           autoComplete="notes"
           placeholder="وارد کنید..."
           label="یادداشت"

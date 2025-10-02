@@ -18,6 +18,7 @@ const Recovery = () => {
           جهت بازیابی رمز عبور لطفا شماره موبایل خود را وارد کنید.
         </p>
         <Input
+          containerClassName="bg-input-primary"
           label="موبایل"
           placeholder="وارد کنید..."
           wrapperClassName="mt-10"

@@ -80,6 +80,7 @@
   --shadow-popover-light: 0 0 20px 0 rgba(0, 0, 0, 0.08);
 
   --font-yekan: "Yekan";
+  --font-spartan: "Spartan";
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -129,6 +130,9 @@
   .bg-neutral-15 {
     @apply bg-gray-150 dark:bg-gray-700;
   }
+  .bg-input-primary {
+    @apply bg-white dark:bg-gray-700;
+  }
 
   .bg-base {
     @apply bg-white dark:bg-gray-900;
@@ -139,80 +143,88 @@
   .text-base {
     @apply text-black dark:text-white;
   }
-}
-.toast {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
+  .toast {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
 
-.toast.exiting {
-  opacity: 0;
-  transform: translateY(10px);
-}
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  pointer-events: auto;
-}
+  .toast.exiting {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto;
+  }
 
-.modal-content {
-  border-radius: 30px;
-  opacity: 1;
-  transform: scale(1);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
+  .modal-content {
+    border-radius: 30px;
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
 
-.modal-content.exiting {
-  opacity: 0;
-  transform: scale(0.95);
-}
+  .modal-content.exiting {
+    opacity: 0;
+    transform: scale(0.95);
+  }
 
-.ant-picker-panel-layout,
-.ant-picker-input {
-  font-family: "Yekan";
-}
+  .ant-picker-panel-layout,
+  .ant-picker-input {
+    font-family: "Yekan";
+  }
 
-.ant-picker {
-  @apply w-full  bg-gray-150 border-0 dark:bg-gray-700  text-base placeholder:text-sm placeholder:text-gray-600 outline-none  py-2  px-3.5  rounded-full;
-}
+  .ant-picker {
+    @apply w-full  bg-gray-150 border-0 dark:bg-gray-700  text-base placeholder:text-sm placeholder:text-gray-600 outline-none  py-2  px-3.5  rounded-full;
+  }
 
-.form-control {
-  @apply font-yekan text-lg font-bold;
-}
+  .form-control {
+    @apply font-yekan text-lg font-bold;
+  }
 
-.checkbox {
-  @apply appearance-none bg-white dark:bg-gray-750 m-0 from-inherit grid place-items-center text-current size-4 border border-black/40  rounded-sm;
+  .checkbox {
+    @apply appearance-none bg-white dark:bg-gray-750 m-0 from-inherit grid place-items-center text-current size-4 border border-black/40  rounded-sm;
 
-  transform: translateY(-0.075em);
-}
-.checkbox:checked {
-  @apply bg-orange-500/40 border-0;
-}
+    transform: translateY(-0.075em);
+  }
+  .checkbox:checked {
+    @apply bg-orange-500/40 border-0;
+  }
 
-.checkbox::before {
-  @apply content-[''] size-2 scale-0 transition-transform;
-  box-shadow: inset 1em 1em var(--form-control-color);
-  background-color: var(--color-orange-500);
+  .checkbox::before {
+    @apply content-[''] size-2 scale-0 transition-transform;
+    box-shadow: inset 1em 1em var(--form-control-color);
+    background-color: var(--color-orange-500);
 
-  transform-origin: bottom left;
-  clip-path: polygon(20% 46%, 0 59%, 46% 100%, 100% 16%, 80% 0%, 43% 62%);
-}
+    transform-origin: bottom left;
+    clip-path: polygon(20% 46%, 0 59%, 46% 100%, 100% 16%, 80% 0%, 43% 62%);
+  }
 
-.checkbox:checked::before {
-  @apply scale-[1];
-}
+  .checkbox:checked::before {
+    @apply scale-[1];
+  }
 
-.scroll-hidden {
-  overflow: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
+  .scroll-hidden {
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
 
-.scroll-hidden::-webkit-scrollbar {
-  display: none;
+  .scroll-hidden::-webkit-scrollbar {
+    display: none;
+  }
+
+  .curve {
+    @apply absolute content-[""] size-[70px] top-0 -translate-y-[50%] left-0 right-0 mx-auto rounded-full;
+  }
+
+  .tp input {
+    outline: 0;
+  }
 }

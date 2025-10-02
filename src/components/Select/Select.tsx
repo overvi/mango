@@ -5,26 +5,42 @@ type Option = { label: string; value: string; checked?: boolean };
 
 interface Props {
   options: Option[];
+  value?: string;
+  onChange?: (value: string) => void;
   buttonClassName?: string;
   listClassName?: string;
   optionClassName?: string;
-  iconClassName: string;
+  iconClassName?: string;
   label?: string;
   labelClassName?: string;
   id?: string;
+  showCheckbox?: boolean;
 }
 
 const Select = ({
   options,
+  value,
+  onChange,
   buttonClassName,
   listClassName,
   optionClassName,
   iconClassName,
   label,
   labelClassName,
+  showCheckbox,
   id,
 }: Props) => {
-  const [selected, setSelected] = useState(options.find((o) => o.checked));
+  const [internalSelected, setInternalSelected] = useState<Option | undefined>(
+    options.find((o) => o.checked)
+  );
+  console.log(
+    "Options values:",
+    options.map((o) => o.value)
+  );
+
+  const selected = value
+    ? options.find((o) => o.value === value)
+    : internalSelected;
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
 
@@ -84,7 +100,11 @@ const Select = ({
     options.find((o) => o.value === selected?.value)?.label || "انتخاب کنید...";
 
   const handleClick = (option: Option) => {
-    setSelected(option);
+    if (onChange) {
+      onChange(option.value);
+    } else {
+      setInternalSelected(option);
+    }
     setDropdownOpen(false);
   };
 
@@ -124,19 +144,23 @@ const Select = ({
         <ul
           role="listbox"
           aria-activedescendant={`option-${focusedIndex}`}
-          className={`${listClassName} bg-base p-3 shadow-select absolute -bottom-2 translate-y-full right-0 left-0 rounded-[1.25rem]`}
+          className={`${listClassName} bg-base p-3 shadow-select absolute z-[500] -bottom-2 translate-y-full right-0 left-0 rounded-[1.25rem]`}
         >
           {options.map((opt, idx) => (
             <li
               key={opt.value}
-              className={`${optionClassName} rounded-xl h-10 flex items-center ps-5 ${
-                selected === opt ? "bg-neutral-15" : ""
-              } ${focusedIndex === idx ? "bg-neutral-15" : ""}`}
+              className={`${optionClassName} rounded-xl h-10 flex items-center ps-5 justify-between ${
+                !showCheckbox && selected?.value === opt.value
+                  ? "bg-neutral-15"
+                  : ""
+              } ${
+                !showCheckbox && focusedIndex === idx ? "bg-neutral-15" : ""
+              }`}
               role="option"
               id={`option-${idx}`}
             >
               <button
-                className="w-full text-right"
+                className="w-full text-right flex justify-between items-center"
                 tabIndex={focusedIndex === idx ? 0 : -1}
                 onClick={() => handleClick(opt)}
                 onKeyDown={(e) => {
@@ -146,7 +170,19 @@ const Select = ({
                   }
                 }}
               >
-                {opt.label}
+                {showCheckbox ? (
+                  <div className="flex items-center gap-1.5">
+                    <input
+                      readOnly
+                      checked={selected?.value === opt.value}
+                      type="checkbox"
+                      className="checkbox"
+                    />
+                    <label htmlFor="">{opt.label}</label>
+                  </div>
+                ) : (
+                  <span className="flex-1 text-right">{opt.label}</span>
+                )}
               </button>
             </li>
           ))}
@@ -157,3 +193,5 @@ const Select = ({
 };
 
 export default Select;
+
+// selected?.value === opt.value
