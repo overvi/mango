@@ -80,7 +80,7 @@ const HotelParkingManagement = () => {
                   </div>
                   <ParkingStatus />
                 </div>
-                <ParkingSlots tabs={tabs} />
+                <ParkingSlots showStatus tabs={tabs} />
               </div>
             </div>
             <div className="bg-neutral-200 rounded-[1.25rem] py-5 px-4 mt-5 basis-[30%] ">
