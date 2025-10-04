@@ -9,6 +9,7 @@ import {
 } from "react";
 import { createPortal } from "react-dom";
 import ModalContext from "../context/ModalContext";
+import { Outlet } from "react-router";
 
 export const ModalProvider = ({ children }: PropsWithChildren) => {
   const [exiting, setExiting] = useState(false);
@@ -70,27 +71,30 @@ export const ModalProvider = ({ children }: PropsWithChildren) => {
   );
 
   return (
-    <ModalContext.Provider value={value}>
-      {children}
-      {content &&
-        createPortal(
-          <div
-            className={["modal-overlay", overlayClass].join(" ")}
-            onClick={closeModal}
-          >
+    <>
+      <ModalContext.Provider value={value}>
+        {children}
+        <Outlet />
+        {content &&
+          createPortal(
             <div
-              style={style}
-              className={`modal-content bg-neutral-200 text-base ${
-                exiting ? "exiting" : ""
-              }`}
-              onClick={(e) => e.stopPropagation()}
-              onTransitionEnd={handleTransitionEnd}
+              className={["modal-overlay", overlayClass].join(" ")}
+              onClick={closeModal}
             >
-              {content}
-            </div>
-          </div>,
-          document.body
-        )}
-    </ModalContext.Provider>
+              <div
+                style={style}
+                className={`modal-content bg-neutral-200 text-base ${
+                  exiting ? "exiting" : ""
+                }`}
+                onClick={(e) => e.stopPropagation()}
+                onTransitionEnd={handleTransitionEnd}
+              >
+                {content}
+              </div>
+            </div>,
+            document.body
+          )}
+      </ModalContext.Provider>
+    </>
   );
 };

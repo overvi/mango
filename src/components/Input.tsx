@@ -11,6 +11,7 @@ interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   className?: string;
   icon?: React.ReactNode;
   containerClassName?: string;
+  star?: boolean;
 }
 
 export const Input = React.forwardRef<HTMLInputElement, Props>(
@@ -23,6 +24,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
       className,
       icon,
       containerClassName,
+      star,
       ...rest
     },
     ref
@@ -33,7 +35,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
     return (
       <div className={`w-full ${wrapperClassName}`}>
         <label htmlFor="" className="text-sm">
-          {label}
+          {label} {star && <span className="text-error">*</span>}
         </label>
         <div
           className={`mt-1 flex items-center pe-3   relative rounded-full justify-between ${containerClassName}`}

@@ -1,4 +1,3 @@
-import AvailableModal from "@/components/ParkingManagement/AvailableModal";
 import ExpiredModal from "@/components/ParkingManagement/ExpiredModal";
 import FailureRecordModal from "@/components/ParkingManagement/FailureRecordModal";
 import OccupiedModal from "@/components/ParkingManagement/OccupiedModal";
@@ -14,7 +13,6 @@ export const STATUS_LABELS = {
 };
 
 export const STATUS_MODALS: Record<string, ReactNode> = {
-  [STATUS_LABELS.AVAILABLE]: <AvailableModal />,
   [STATUS_LABELS.RESERVED]: <ReservationModal />,
   [STATUS_LABELS.BROKEN]: <FailureRecordModal />,
   [STATUS_LABELS.OCCUPIED]: <OccupiedModal />,

@@ -33,10 +33,6 @@ const Select = ({
   const [internalSelected, setInternalSelected] = useState<Option | undefined>(
     options.find((o) => o.checked)
   );
-  console.log(
-    "Options values:",
-    options.map((o) => o.value)
-  );
 
   const selected = value
     ? options.find((o) => o.value === value)
@@ -102,9 +98,8 @@ const Select = ({
   const handleClick = (option: Option) => {
     if (onChange) {
       onChange(option.value);
-    } else {
-      setInternalSelected(option);
     }
+    setInternalSelected(option);
     setDropdownOpen(false);
   };
 

@@ -5,6 +5,8 @@ import {
 } from "@/constants/statusLabels.tsx";
 import Car from "@/assets/images/car-outline.svg?react";
 import useModal from "../Modal/useModal";
+import AvailableModal from "./AvailableModal";
+import type { Tab } from "../Tab/Tab";
 
 const slots = [
   {
@@ -39,7 +41,11 @@ const styledSlots = slots.map((slot) => ({
   ...STATUS_STYLES[slot.type],
 }));
 
-const ParkingSlots = () => {
+interface Props {
+  showStatus: boolean;
+  tabs: Tab[];
+}
+const ParkingSlots = ({ tabs, showStatus }: Props) => {
   const { openModal } = useModal();
   return (
     <div className="flex flex-col min-h-[34.6rem] justify-between mt-6">
@@ -55,7 +61,15 @@ const ParkingSlots = () => {
             }}
           >
             <button
-              onClick={() => openModal(STATUS_MODALS[slot.type])}
+              onClick={() =>
+                openModal(
+                  slot.type === STATUS_LABELS.AVAILABLE ? (
+                    <AvailableModal showStatus={showStatus} tabs={tabs} />
+                  ) : (
+                    STATUS_MODALS[slot.type]
+                  )
+                )
+              }
               className=" size-15.5 rounded-xl  py-3.5 flex flex-col justify-center items-center"
             >
               <Car className="shrink-0" />

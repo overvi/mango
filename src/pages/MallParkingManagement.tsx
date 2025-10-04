@@ -8,13 +8,13 @@ import Statistics from "@/components/ParkingManagement/Statistics";
 import ParkingNav from "@/components/ParkingNav/ParkingNav";
 import Select from "@/components/Select/Select";
 import type { Tab } from "@/components/Tab/Tab";
-import RegistrationStep from "@/components/ParkingManagement/RegistrationStep";
 import RecordFailure from "@/components/ParkingManagement/RecordFailure";
 import ReserveForLater from "@/components/ParkingManagement/ReserveForLater";
 
 import CarFilled from "@/assets/images/car.svg?react";
 import Clock from "@/assets/images/clock.svg?react";
 import Danger from "@/assets/images/danger.svg?react";
+import RegistrationStep from "@/components/PublicManagement/RegistrationStep";
 
 const options = [
   { label: "طبقه 1", value: "1" },
@@ -46,7 +46,7 @@ const tabs: Tab[] = [
   },
 ];
 
-const HotelParkingManagement = () => {
+const MallParkingManagement = () => {
   return (
     <div className="flex  gap-5 py-6 text-base px-11.5 bg-primary h-screen min-w-[var(--breakpoint-desktop)]  min-h-[800px]">
       <Sidebar />
@@ -80,7 +80,7 @@ const HotelParkingManagement = () => {
                   </div>
                   <ParkingStatus />
                 </div>
-                <ParkingSlots tabs={tabs} />
+                <ParkingSlots showStatus={false} tabs={tabs} />
               </div>
             </div>
             <div className="bg-neutral-200 rounded-[1.25rem] py-5 px-4 mt-5 basis-[30%] ">
@@ -94,6 +94,26 @@ const HotelParkingManagement = () => {
                       <div className="bg-green-500/15 text-green-500 px-2 py-0.5 rounded-lg flex items-center gap-1">
                         <span className="bg-green-500 shrink-0 rounded-full  size-[3px] "></span>
                         <p className="text-[10px]">ورود</p>
+                      </div>
+                    </div>
+                    <div className="text-xs text-gray-650  mt-2">
+                      <p>محمد میرزایی ( اتاق ۳۲)</p>
+                      <p>۲۰۶ سفید - ۱۲۴ف۷۶</p>
+                    </div>
+                  </div>
+                  <div className="text-left">
+                    <p className="text-sm font-semibold">12:56</p>
+                    <p className="text-xs text-gray-650">۱۴۰۴/۰۲/۲۳</p>
+                  </div>
+                </li>
+                <li className="flex bg-error/5 rounded-[.875rem]  p-3.5 items-center justify-between">
+                  <div>
+                    <div className="flex items-center  gap-1.5">
+                      <Car color="var(--color-error)" />
+                      <p className="text-sm">جایگاه ۷</p>
+                      <div className="bg-error/15 text-error px-2 py-0.5 rounded-lg flex items-center gap-1">
+                        <span className="bg-error shrink-0 rounded-full  size-[3px] "></span>
+                        <p className="text-[10px]">زمان خروج گذشته است</p>
                       </div>
                     </div>
                     <div className="text-xs text-gray-650  mt-2">
@@ -175,7 +195,7 @@ const HotelParkingManagement = () => {
   );
 };
 
-export default HotelParkingManagement;
+export default MallParkingManagement;
 
 export const InfoRow = ({ label, value }: { label: string; value: string }) => (
   <div>

@@ -8,13 +8,13 @@ import Statistics from "@/components/ParkingManagement/Statistics";
 import ParkingNav from "@/components/ParkingNav/ParkingNav";
 import Select from "@/components/Select/Select";
 import type { Tab } from "@/components/Tab/Tab";
-import RegistrationStep from "@/components/ParkingManagement/RegistrationStep";
 import RecordFailure from "@/components/ParkingManagement/RecordFailure";
 import ReserveForLater from "@/components/ParkingManagement/ReserveForLater";
 
 import CarFilled from "@/assets/images/car.svg?react";
 import Clock from "@/assets/images/clock.svg?react";
 import Danger from "@/assets/images/danger.svg?react";
+import RegistrationStep from "@/components/OfficeManagement/RegistrationStep";
 
 const options = [
   { label: "طبقه 1", value: "1" },
@@ -46,7 +46,7 @@ const tabs: Tab[] = [
   },
 ];
 
-const HotelParkingManagement = () => {
+const OfficeParkingManagement = () => {
   return (
     <div className="flex  gap-5 py-6 text-base px-11.5 bg-primary h-screen min-w-[var(--breakpoint-desktop)]  min-h-[800px]">
       <Sidebar />
@@ -175,7 +175,7 @@ const HotelParkingManagement = () => {
   );
 };
 
-export default HotelParkingManagement;
+export default OfficeParkingManagement;
 
 export const InfoRow = ({ label, value }: { label: string; value: string }) => (
   <div>
